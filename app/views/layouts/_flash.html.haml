@@ -1,0 +1,5 @@
+- for flashtype in [:success, :error, :notice, :alert]
+  - if flash[flashtype]
+    =! ".flash-#{flashtype}"
+      %span
+        = flash[flashtype]

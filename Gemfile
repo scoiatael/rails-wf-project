@@ -31,6 +31,10 @@ gem 'devise'
 gem 'haml'
 gem 'html2haml', group: :development
 
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 
