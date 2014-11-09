@@ -1,5 +1,4 @@
-- for flashtype in [:success, :error, :notice, :alert]
+- [:success, :error, :notice, :alert].each do |flashtype|
   - if flash[flashtype]
-    =! ".flash-#{flashtype}"
-      %span
-        = flash[flashtype]
+    %div{class: "flash-#{flashtype}" }
+      %span #{flash[flashtype]}
