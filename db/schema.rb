@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141109195205) do
+ActiveRecord::Schema.define(version: 20141109201056) do
+
+  create_table "invitations", force: true do |t|
+    t.string   "hash"
+    t.date     "expiresAt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "invitations", ["hash"], name: "index_invitations_on_hash"
+  add_index "invitations", ["user_id"], name: "index_invitations_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",     null: false

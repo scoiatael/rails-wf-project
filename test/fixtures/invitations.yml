@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hash: MyStrin1
+  expiresAt: 2014-11-09
+  user: 1
+
+two:
+  hash: MyStrin2
+  expiresAt: 2014-11-09
+  user: 1
