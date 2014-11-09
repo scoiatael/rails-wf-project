@@ -2,8 +2,6 @@ $flash-red: #FBE3E4;
 $flash-yellow: #FFF6BF;
 $flash-green: #E6EFC2;
 
-$flashes:( "alert": $flash-yellow, "error": $flash-red, "notice": lighten($base-accent-color, 40), "success": $flash-green);
-
 %flash-base {
   display: block;
   font-weight: bold;
@@ -11,20 +9,34 @@ $flashes:( "alert": $flash-yellow, "error": $flash-red, "notice": lighten($base-
   padding: $base-spacing / 2;
 }
 
-@each $flash, $color in $flashes {
-  .flash-#{$flash} {
-    @extend %flash-base;
-    background: $color;
-    color: darken($color, 60);
+$color: $flash-yellow;
+.flash-alert {
+  @extend %flash-base;
+  background: $color;
+  color: darken($color, 60);
 
-    a {
-      color: darken($color, 70);
-      border-bottom: 1px solid transparentize(darken($color, 70), .7);
-
-      &:hover {
-        color: darken($color, 90);
-      }
-    }
-  }
 }
 
+$color: $flash-red;
+.flash-error {
+  @extend %flash-base;
+  background: $color;
+  color: darken($color, 60);
+
+}
+
+$color: lighten($base-accent-color, 40);
+.flash-notice {
+  @extend %flash-base;
+  background: $color;
+  color: darken($color, 60);
+
+}
+
+$color: $flash-green;
+.flash-success {
+  @extend %flash-base;
+  background: $color;
+  color: darken($color, 60);
+
+}
