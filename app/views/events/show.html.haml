@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Date:
+  = @event.date
+%p
+  %strong Movie:
+  = @event.movie
+= link_to 'Edit', edit_event_path(@event)
+|
+\#{link_to 'Back', events_path}

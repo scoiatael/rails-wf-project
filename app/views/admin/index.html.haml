@@ -15,7 +15,7 @@
 
   .card
     .card-image
-      %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains-1.png"}/
+      %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains-3.png"}/
     .card-header Events
     .card-copy
       %p Tools for events management.
@@ -24,3 +24,15 @@
         %li
           = Event.find_each.size
           %span past events
+
+  .card
+    .card-image
+      %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png"}/
+    .card-header Movies
+    .card-copy
+      %p Movie database
+    .card-stats
+      %ul
+        %li
+          = Movie.find_each.size
+          %span movies in database
