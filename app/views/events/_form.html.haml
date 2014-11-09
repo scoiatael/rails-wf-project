@@ -7,13 +7,9 @@
       %ul
         - @event.errors.full_messages.each do |message|
           %li= message
-  .field
+  .field.flex
     = f.label :date
-    %br/
+    = ": "
     = f.date_select :date
-  .field
-    = f.label :movie_id
-    %br/
-    = f.text_field :movie_id
   .actions
     = f.submit
