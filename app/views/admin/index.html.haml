@@ -1,0 +1,26 @@
+.cards
+  .card
+    .ribbon-wrapper
+      .ribbon RIBBON
+    .card-image
+      %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains-4.png"}/
+    .card-header Users
+    .card-copy
+      %p Tools for user management.
+    .card-stats
+      %ul
+        %li
+          = User.find_each.size
+          %span Users
+
+  .card
+    .card-image
+      %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains-1.png"}/
+    .card-header Events
+    .card-copy
+      %p Tools for events management.
+    .card-stats
+      %ul
+        %li
+          = Event.find_each.size
+          %span past events

@@ -9,7 +9,7 @@
           %a{:href => "javascript:void(0)"} Vote
         - if user_signed_in? and current_user.admin?
           %li.nav-link
-            %a{:href => "javascript:void(0)"} Admin
+            = link_to 'Admin', admin_path
 
         %li.nav-link.more
           %a{:href => "javascript:void(0)"} Past Events
@@ -38,3 +38,4 @@
       = link_to_unless user_signed_in?, 'Sign In', new_user_session_path, class: 'sign-up'
       = link_to_if user_signed_in?, 'My Account', edit_user_registration_path, class: 'sign-up'
       = link_to_if user_signed_in?, 'Logout', destroy_user_session_path, { class: 'sign-up', method: :delete }
+
