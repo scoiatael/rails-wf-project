@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :vote_options
+
   resources :votes
 
   resources :events
