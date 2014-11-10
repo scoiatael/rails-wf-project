@@ -23,14 +23,14 @@ ActiveRecord::Schema.define(version: 20141109233944) do
   add_index "events", ["movie_id"], name: "index_events_on_movie_id"
 
   create_table "invitations", force: true do |t|
-    t.string   "hash"
+    t.string   "id_hash"
     t.date     "expiresAt"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
   end
 
-  add_index "invitations", ["hash"], name: "index_invitations_on_hash"
+  add_index "invitations", ["id_hash"], name: "index_invitations_on_id_hash"
   add_index "invitations", ["user_id"], name: "index_invitations_on_user_id"
 
   create_table "movies", force: true do |t|

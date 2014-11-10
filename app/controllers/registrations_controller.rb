@@ -1,9 +1,21 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  def new
+    @id_hash = invitation_params['invitation']
+    super
+  end
+
   def create
-    self.resource = User.new resource_params
-    flash.now.alert = "You haven't been invited!"
-    render 'new'
+    invitation_id = invitation_params['invitation']
+    valid_invitation = Invitation.find_by id_hash: invitation_id
+    valid_invitation.delete
+    unless valid_invitation
+      self.resource = User.new resource_params
+      flash.now.alert = "You haven't been invited!"
+      render 'new'
+    else
+      super
+    end
   end
 
   private
@@ -12,7 +24,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def invitation_params
-    params.require('invitation').permit 'hash'
+    params.permit('invitation')
   end
 
 end
