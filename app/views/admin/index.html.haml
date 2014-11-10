@@ -4,35 +4,41 @@
       .ribbon RIBBON
     .card-image
       %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains-4.png"}/
-    .card-header Users
-    .card-copy
-      %p Tools for user management.
-    .card-stats
-      %ul
-        %li
-          = User.find_each.size
-          %span Users
+    %a{href: "/users"}
+      .card-header Users
+      .card-copy
+        %p Tools for user management.
+      .card-stats
+        %ul
+          %li
+            = pluralize(User.find_each.size, "user")
+            %span 
+              in database
 
   .card
     .card-image
       %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains-3.png"}/
-    .card-header Events
-    .card-copy
-      %p Tools for events management.
-    .card-stats
-      %ul
-        %li
-          = Event.find_each.size
-          %span past events
+    %a{href: "/events"}
+      .card-header Events
+      .card-copy
+        %p Tools for events management.
+      .card-stats
+        %ul
+          %li
+            = pluralize(Event.find_each.size, "event")
+            %span 
+              in database
 
   .card
     .card-image
       %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png"}/
-    .card-header Movies
-    .card-copy
-      %p Movie database
-    .card-stats
-      %ul
-        %li
-          = Movie.find_each.size
-          %span movies in database
+    %a{href: "/movies"}
+      .card-header Movies
+      .card-copy
+        %p Movie database
+      .card-stats
+        %ul
+          %li
+            = pluralize(Movie.find_each.size, "movie")
+            %span 
+              in database

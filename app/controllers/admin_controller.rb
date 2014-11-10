@@ -4,6 +4,13 @@ class AdminController < ApplicationController
   def index
   end
 
+  def users
+  end
+
+  def user
+    @user = User.find(params[:id])
+  end
+
 
   private
   def check_admin

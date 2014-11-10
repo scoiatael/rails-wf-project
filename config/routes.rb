@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  resources :vote_options
-
-  resources :votes
 
   resources :events
 
@@ -15,6 +12,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'admin' => 'admin#index'
+  get 'users' => 'admin#users'
+  get 'user/:id' => 'admin#user'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,0 +1,29 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @user.name
+%p
+  %strong Email:
+  = @user.email
+%p
+  %strong Seen times
+  =  @user.sign_in_count
+%p
+  %strong Current login
+  =  @user.current_sign_in_at
+%p
+  %strong Last login
+  =  @user.last_sign_in_at
+%p
+  %strong Last IP
+  =  @user.last_sign_in_ip
+%p
+  %strong Current IP
+  =  @user.current_sign_in_ip
+%p
+  %strong Created at
+  =  @user.created_at
+%p
+  %strong Role
+  =  @user.role
+\#{link_to 'Back', users_path}

@@ -7,31 +7,12 @@
       %ul#navigation-menu
         %li.nav-link
           %a{:href => "javascript:void(0)"} Vote
+          %a{:href => "/events"} Events
+          %a{:href => "/movies"} Movies
         - if user_signed_in? and current_user.admin?
           %li.nav-link
             = link_to 'Admin', admin_path
 
-        %li.nav-link.more
-          %a{:href => "javascript:void(0)"} Past Events
-          %ul.submenu
-            %li
-              %a{:href => "javascript:void(0)"} Submenu Item
-            %li
-              %a{:href => "javascript:void(0)"} Another Item
-            %li.more
-              %a{:href => "javascript:void(0)"} Item with submenu
-              %ul.submenu
-                %li
-                  %a{:href => "javascript:void(0)"} Sub-submenu Item
-                %li
-                  %a{:href => "javascript:void(0)"} Another Item
-            %li.more
-              %a{:href => "javascript:void(0)"} Another submenu
-              %ul.submenu
-                %li
-                  %a{:href => "javascript:void(0)"} Sub-submenu
-                %li
-                  %a{:href => "javascript:void(0)"} An Item
 
     .navigation-tools
       = link_to_unless user_signed_in?, 'Sign Up', new_user_registration_path, class: 'sign-up'

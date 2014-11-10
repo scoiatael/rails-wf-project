@@ -11,5 +11,8 @@
     = f.label :date
     = ": "
     = f.date_select :date
+  .field
+    = f.label :movie
+    = collection_select :event, :movie_id, Movie.all, :id, :name, include_blank: true
   .actions
     = f.submit

@@ -32,8 +32,10 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    @movie.destroy
-    respond_with(@movie)
+    if current_user.try :admin?
+      @movie.destroy
+      respond_with(@movie)
+    end
   end
 
   private
