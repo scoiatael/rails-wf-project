@@ -1,6 +1,4 @@
 header.navigation {
-  position:fixed;
-  top:0px;
   $navigation-padding: 1em;
   $navigation-background: $dark-gray;
   $navigation-color: transparentize(white, 0.3);
@@ -21,6 +19,11 @@ header.navigation {
   height: $navigation-height;
   width: 100%;
   z-index: 999;
+
+  @include media($large-screen) {
+    position:fixed;
+    top:0px;
+  }
 
   .navigation-wrapper {
     @include clearfix;

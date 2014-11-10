@@ -1,13 +1,14 @@
-%p#notice= notice
-%p
-  %strong Name:
-  = @movie.name
-%p
-  %strong Link:
-  = @movie.link
-%p
-  %strong Description:
-  = @movie.description
-= link_to 'Edit', edit_movie_path(@movie)
-|
-\#{link_to 'Back', movies_path}
+.form
+  %p#notice= notice
+  %p
+    %strong Name:
+    = @movie.name
+  %p
+    %strong Link:
+    = @movie.link
+  %p
+    %strong Description:
+    = @movie.description
+  = link_to 'Edit', edit_movie_path(@movie)
+  |
+  \#{link_to 'Back', movies_path}

@@ -1,7 +1,5 @@
 
 .footer-2 {
-  position:fixed;
-  bottom:0px;
   $footer-background: desaturate(darken($base-accent-color, 20), 30);
   $footer-color: white;
   $footer-link-color: transparentize($footer-color, .6);
@@ -10,6 +8,15 @@
   background: $footer-background;
   padding: $base-spacing;
   width: 100%;
+
+  @include display(flex);
+  justify-content: space-around;
+
+  @include media($large-screen) {
+    @include display(block);
+    position:fixed;
+    bottom:0px;
+  } 
 
 
   .footer-logo {
