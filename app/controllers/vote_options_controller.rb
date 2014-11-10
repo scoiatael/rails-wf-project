@@ -1,5 +1,6 @@
 class VoteOptionsController < ApplicationController
   before_action :set_vote_option, only: [:show, :edit, :update, :destroy]
+  before_action :check_user
 
   respond_to :html
 
