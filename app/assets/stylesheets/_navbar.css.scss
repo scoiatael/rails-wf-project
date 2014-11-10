@@ -1,4 +1,6 @@
 header.navigation {
+  position:fixed;
+  top:0px;
   $navigation-padding: 1em;
   $navigation-background: $dark-gray;
   $navigation-color: transparentize(white, 0.3);
