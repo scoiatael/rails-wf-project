@@ -39,6 +39,7 @@ gem 'bcrypt'
 gem 'pg', group: :production
 
 gem 'sqlite3', group: :development
+gem 'sqlite3', group: :testing
 
 # Use unicorn as the app server
 # gem 'unicorn'
