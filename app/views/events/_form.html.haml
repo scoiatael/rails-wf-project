@@ -1,4 +1,4 @@
-= form_for(@event) do |f|
+= form_for @event do |f|
   - if @event.errors.any?
     #error_explanation
       %h2
@@ -11,8 +11,12 @@
     = f.label :date
     = ": "
     = f.date_select :date
-  .field
-    = f.label :movie
-    = collection_select :event, :movie_id, Movie.all, :id, :name, include_blank: true
+  = f.fields_for :vote do |ff|
+    = ff.fields_for :vote_options do |fff|
+      #vote-options
+      .field.flex#blank-vote-option
+        %button.block.small#add-vote-option +
+        = fff.label :movie
+        = fff.collection_select :movie_id, Movie.all, :id, :name, include_blank: true
   .actions
     = f.submit
