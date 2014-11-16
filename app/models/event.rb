@@ -1,8 +1,7 @@
 class Event < ActiveRecord::Base
   belongs_to :movie
-  has_one :vote
-  accepts_nested_attributes_for :vote
-  before_create :add_empty_vote
+  has_many :vote_options
+  accepts_nested_attributes_for :vote_options, :reject_if => :all_blank, :allow_destroy => true
 
   private
   def add_empty_vote

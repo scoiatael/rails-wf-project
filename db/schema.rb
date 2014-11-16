@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141109233944) do
+ActiveRecord::Schema.define(version: 20141116172858) do
 
   create_table "events", force: true do |t|
     t.date     "date"
@@ -62,15 +62,14 @@ ActiveRecord::Schema.define(version: 20141109233944) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "vote_options", force: true do |t|
-    t.integer  "vote_id"
     t.integer  "movie_id"
-    t.integer  "count"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "event_id"
   end
 
+  add_index "vote_options", ["event_id"], name: "index_vote_options_on_event_id"
   add_index "vote_options", ["movie_id"], name: "index_vote_options_on_movie_id"
-  add_index "vote_options", ["vote_id"], name: "index_vote_options_on_vote_id"
 
   create_table "votes", force: true do |t|
     t.integer  "event_id"

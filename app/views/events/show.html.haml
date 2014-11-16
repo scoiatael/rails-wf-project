@@ -3,17 +3,18 @@
   %p
     %strong Date:
     = @event.date
-  %p
-    %strong Movie:
-    = @event.movie.name
-  %p
-    %strong Vote:
-    - for vote_option in @event.vote.vote_options
-      %p
-        - unless vote_option.movie.nil?
-          = vote_option.movie.name
-          \-
-          = vote_option.count
+  - unless @event.vote_options.try :empty?
+    %p
+      %strong Vote:
+      - for vote_option in @event.vote_options
+        %p
+          - unless vote_option.movie.nil?
+            = vote_option.movie.name
+            \-
+  - else
+    %p
+      %strong Movie:
+      = @event.movie.name
   = link_to 'Edit', edit_event_path(@event)
   |
   \#{link_to 'Back', events_path}

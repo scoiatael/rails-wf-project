@@ -11,13 +11,14 @@
     = f.label :date
     = ": "
     = f.date_select :date
+  .field.flex
     = f.label :movie
     = f.collection_select :movie_id, Movie.all, :id, :name, include_blank: true
-  = f.fields_for :vote do |vote|
-    %h3 Vote
-    #vote_options
-      = vote.fields_for :vote_options do |vote_option|
-        = render 'vote_option_fields', :f => vote_option
-        = link_to_add_association 'add option', vote, :vote_options
+  %h3 Vote
+  #vote_options
+    = f.fields_for :vote_options do |vote_option|
+      = render 'vote_option_fields', :f => vote_option
+    .links
+    = link_to_add_association 'add option', f, :vote_options
   .actions
     = f.submit
