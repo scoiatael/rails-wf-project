@@ -1,0 +1,20 @@
+%p
+  on:
+  =event.date
+  %table
+    %tr
+      %th Name
+      %th Size
+      %th{colspan: 2} Vote
+    - for vote_option in event.vote_options
+      %tr
+        %td= vote_option.movie.name
+        %td= vote_option.votes_for.size
+        %td
+          = link_to '+', "/vote/#{vote_option.id}", method: :post, data: { confirm: "Are you sure?\nUpvoting #{vote_option.id}" }
+          - for voter in vote_option.votes_for.up.take 4
+            = voter.id
+        %td
+          = link_to '-', "/vote/#{vote_option.id}", method: :delete, data: { confirm: "Are you sure?\nDownvoting #{vote_option.id}" }
+          - for voter in vote_option.votes_for.down.take 4
+            = voter.id

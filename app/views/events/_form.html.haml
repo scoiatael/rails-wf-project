@@ -16,9 +16,10 @@
     = f.collection_select :movie_id, Movie.all, :id, :name, include_blank: true
   %h3 Vote
   #vote_options
-    = f.fields_for :vote_options do |vote_option|
-      = render 'vote_option_fields', :f => vote_option
+    .exisiting
+      = f.fields_for :vote_options do |vote_option|
+        = render 'vote_option_fields', :f => vote_option
     .links
-    = link_to_add_association 'add option', f, :vote_options
+      = link_to_add_association 'add option', f, :vote_options
   .actions
     = f.submit

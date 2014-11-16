@@ -10,6 +10,10 @@ class Event < ActiveRecord::Base
     options.length == 0
   end
 
+  def vote_closed?
+    not movie.nil?
+  end
+
   private
   def options
     vote_options.reject(&:marked_for_destruction?)

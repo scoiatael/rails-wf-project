@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get 'invite' => 'invitation#index'
   get 'vote' => 'vote#index'
+  post 'vote/:id' => 'vote#up'
+  delete 'vote/:id' => 'vote#down'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
