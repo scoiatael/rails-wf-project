@@ -1,9 +1,13 @@
 %h2 Vote:
 
-%h3 Current:
-= render 'event_vote', :event => newest_event
+- unless newest_event.nil?
+  %h3 Current:
+  = render 'event_vote', :event => newest_event
+- else
+  %p.form No event currently under vote!
 
-%h4 other:
-- for event in votable_events
-  = render 'event_vote', :event => event
+- unless votable_events.empty?
+  %h4 other:
+  - for event in votable_events
+    = render 'event_vote', :event => event
 
