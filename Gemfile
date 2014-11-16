@@ -36,6 +36,8 @@ gem 'bourbon'
 gem 'neat'
 gem 'bitters'
 
+gem 'cocoon'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 

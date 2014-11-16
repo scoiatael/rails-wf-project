@@ -43,6 +43,6 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:date, :movie_id)
+      params.require(:event).permit(:date, :movie_id, vote_attributes: [:id, :_destroy, vote_options_attributes: [ :id, :_destroy, :movie_id]])
     end
 end

@@ -1,0 +1,5 @@
+.nested-fields.field.flex
+  = f.label :movie
+  = f.collection_select :movie_id, Movie.all, :id, :name, include_blank: true
+  = link_to_remove_association "remove option", f
+
