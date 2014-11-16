@@ -5,6 +5,7 @@ module EventsHelper
   end
 
   def votable_events
-    Event.all.select(&:vote_closed?)
+    n = newest_event
+    Event.all.select { |e| e.vote_open? and e.id != n.id }
   end
 end

@@ -3,3 +3,7 @@
 %h3 Current:
 = render 'event_vote', :event => newest_event
 
+%h4 other:
+- for event in votable_events
+  = render 'event_vote', :event => event
+
