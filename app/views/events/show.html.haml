@@ -3,7 +3,7 @@
   %p
     %strong Date:
     = @event.date
-  - unless @event.vote_options.try :empty?
+  - if @event.movie.nil?
     %p
       %strong Vote:
       - for vote_option in @event.vote_options
