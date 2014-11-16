@@ -5,11 +5,12 @@
     %a#js-mobile-menu.navigation-menu-button{:href => ""} MENU
     .nav
       %ul#navigation-menu
-        %li.nav-link
-          %a{:href => "javascript:void(0)"} Vote
-          %a{:href => "/events"} Events
-          %a{:href => "/movies"} Movies
-        - if user_signed_in? and current_user.admin?
+        - if user_signed_in?
+          %li.nav-link
+            %a{:href => "/vote"} Vote
+            %a{:href => "/events"} Events
+            %a{:href => "/movies"} Movies
+        - if current_user.try :admin?
           %li.nav-link
             = link_to 'Admin', admin_path
 

@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#index'
   get 'users' => 'admin#users'
   get 'user/:id' => 'admin#user'
+
   get 'invite' => 'invitation#index'
+  get 'vote' => 'vote#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
