@@ -11,6 +11,7 @@
 
 body
   margin: 0px
+  +transition(all 0.3s)
 
 .content
   margin-top: 100px
@@ -20,6 +21,9 @@ body
 .form
   +span-columns(6)
   +shift(3)
+
+.beside-form
+  +span-columns(3)
 
 .link
   border: 1px
@@ -41,3 +45,13 @@ body
 
 #error_explanation
   @extend .flash-error
+
+.hidden
+  +display(none)
+
+.suggestion
+  color: $light_gray
+  font-size: smaller
+
+.center-text
+  text-align: center

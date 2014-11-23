@@ -11,6 +11,8 @@
     = f.label :name
     %br/
     = f.text_field :name
+    %div.center-text
+      %a#movie_suggestion.suggestion.hidden
   .field
     = f.label :link
     %br/
@@ -19,5 +21,9 @@
     = f.label :description
     %br/
     = f.text_area :description
+  .field.hidden
+    = f.label :imdb_id
+    %br/
+    = f.text_area :imdb_id
   .actions
     = f.submit
