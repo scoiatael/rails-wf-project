@@ -45,21 +45,25 @@ update_movie_params = (get, movie_name) ->
       $('#movie_description').val movie.Plot
       $('#movie_link').val imdb_url movie.imdbID
       $('#movie_imdb_id').val movie.imdbID
-      $('#movie_poster').attr('src', movie.Poster).on 'load', ->
+      console.log "Setting for #movie_poster/#{movie.imdbID}"
+      $("#movie_poster").attr('src', movie.Poster).on 'load', ->
+        $(this).fadeIn()
+      $("#movie_poster_#{movie.imdbID}").attr('src', movie.Poster).on 'load', ->
         $(this).fadeIn()
     else
       $('#movie_imdb_id').val ""
       $('#movie_suggestion').fadeOut()
       $('#movie_description').val ""
       $('#movie_link').val ""
-      $('#movie_poster').fadeOut()
+      $("#movie_poster").fadeOut()
 
 $(document).on 'page:change', ->
   $name = $('input#movie_name')
   name = $('#movie_name').val()
   update_movie_params get_info_by_title, name if name
-  id = $('span#movie_id').text()
-  update_movie_params get_info_by_id, id if id
+  $('span#movie_id').each ->
+    id = $(this).text()
+    update_movie_params get_info_by_id, id if id
   $('#movie_suggestion').click ->
     $('#movie_name').val $(this).text()
     $(this).fadeOut()

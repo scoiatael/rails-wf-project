@@ -3,11 +3,15 @@
   =event.date
   %table
     %tr
+      %th Poster
       %th Name
       %th Size
       %th{colspan: 2} Vote
     - for vote_option in event.vote_options
       %tr
+        %td
+          %img.small-avatar{id: "movie_poster_#{vote_option.movie.imdb_id}"}
+          %span#movie_id.hidden= vote_option.movie.imdb_id
         %td= vote_option.movie.name
         %td= vote_option.votes_for.up.size - vote_option.votes_for.down.size
         %td
