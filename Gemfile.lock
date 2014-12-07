@@ -64,6 +64,10 @@ GEM
       haml (>= 4.0.0.rc.1)
       hpricot (~> 0.8.6)
       ruby_parser (~> 3.1.1)
+    htmlentities (4.3.2)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.11)
     jbuilder (2.2.4)
       activesupport (>= 3.0.0, < 5)
@@ -77,6 +81,7 @@ GEM
     mime-types (2.4.3)
     minitest (5.4.2)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     neat (1.5.1)
       bourbon (>= 3.1)
       sass (~> 3.2.19)
@@ -154,6 +159,8 @@ DEPENDENCIES
   devise
   haml
   html2haml
+  htmlentities
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   neat

@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+PROXY_HOST = undefined
 imdb_url = (id) -> "http://www.imdb.com/title/#{id}"
 OMDB_API =
   url: 'http://omdbapi.com/'
@@ -24,8 +25,16 @@ is_http_status_ok = (status) -> status == 200
 
 get_info_with = (func, title) ->
   new Promise (resolve) ->
-    $.get (func title), (data, status) ->
-      return resolve data
+    if PROXY_HOST
+      proxy = "//#{PROXY_HOST.trim()}/proxy"
+      console.log "Using #{proxy} as proxy"
+      url = { url: (func title) }
+      $.get proxy, url, (data, status) ->
+        console.log data
+        return resolve data
+    else
+      $.get (func title), (data, status) ->
+        return resolve data
 
 get_info_by_id = (id) ->
   get_info_with by_id_url, id
@@ -37,9 +46,12 @@ update_movie_params = (get, movie_name) ->
   console.log "Getting for #{movie_name}"
   get(movie_name).done (json) ->
     movie = {}
-    try
-      movie = JSON.parse json
-    catch
+    if _.isObject json
+      movie = json
+    else
+      try
+        movie = JSON.parse json
+      catch
     if movie.Response == "True"
       $('#movie_suggestion').text(movie.Title).fadeIn() unless movie_name == movie.Title
       $('#movie_description').val movie.Plot
@@ -58,6 +70,8 @@ update_movie_params = (get, movie_name) ->
       $("#movie_poster").fadeOut()
 
 $(document).on 'page:change', ->
+  PROXY_HOST = $('#host').text()
+
   $name = $('input#movie_name')
   name = $('#movie_name').val()
   update_movie_params get_info_by_title, name if name
