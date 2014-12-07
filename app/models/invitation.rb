@@ -11,7 +11,7 @@ class Invitation < ActiveRecord::Base
 
   private
   def set_hash
-    self.id_hash = BCrypt::Password.create(Date.today.to_datetime.to_s + self.user.id.to_s).to_s.gsub(/[\/?]/, '')
+    self.id_hash = BCrypt::Password.create(Date.today.to_datetime.to_s + self.user.id.to_s).to_s.gsub(/[\/?=&]/, '')
   end
   def set_expiration_date
     self.expiresAt = Date.today + 5

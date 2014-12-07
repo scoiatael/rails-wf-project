@@ -26,7 +26,6 @@ class Event < ActiveRecord::Base
     def assert_unique_movies
       unless no_options?
         unique_movies = options.collect(&:movie_id).uniq
-        puts "unique: #{unique_movies} vs #{options.to_a}"
         errors.add(:vote_options, ": movies must be unique") unless unique_movies.length == options.length
       end
     end
