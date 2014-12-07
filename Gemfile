@@ -39,6 +39,8 @@ gem 'bitters'
 gem 'cocoon'
 gem 'acts_as_votable'
 
+gem 'virtus'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 
