@@ -9,7 +9,8 @@
         %p
           - unless vote_option.movie.nil?
             = vote_option.movie.name
-            \-
+            \:
+            = vote_option.votes_for.up.size - vote_option.votes_for.down.size
   - else
     %p
       %strong Movie:
