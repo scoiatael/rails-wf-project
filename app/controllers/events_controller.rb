@@ -1,8 +1,10 @@
 require 'date'
 
 class EventsController < ApplicationController
+  include ApplicationHelper
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :check_user
+  before_action :check_admin, only: [:edit, :update, :destroy]
 
   respond_to :html
 

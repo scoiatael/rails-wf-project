@@ -14,6 +14,7 @@
     %p
       %strong Movie:
       = @event.movie.name
-  = link_to 'Edit', edit_event_path(@event)
-  |
+  - if current_user.try :admin?
+    = link_to 'Edit', edit_event_path(@event)
+    |
   \#{link_to 'Back', events_path}
