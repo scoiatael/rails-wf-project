@@ -59,7 +59,7 @@ class EventForm
     end
 
     def must_have_either_movie_or_vote
-      if movie.empty? and no_options?
+      if movie.nil? and no_options?
         errors.add(:vote_options_attributes, ": cannot add event with neither movie nor vote")
       end
     end

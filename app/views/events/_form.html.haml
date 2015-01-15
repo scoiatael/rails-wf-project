@@ -11,9 +11,6 @@
     = f.label :date
     = ": "
     = f.date_select :date
-  .field.flex
-    = f.label :movie
-    = f.collection_select :movie_id, Movie.all, :id, :name, include_blank: true
   %h3 Vote
   #vote_options
     .exisiting

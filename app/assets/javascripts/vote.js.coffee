@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 #
 
-$ ->
+ready = ->
   last = (arr) ->
     arr[arr.length - 1]
 
@@ -34,7 +34,7 @@ $ ->
         done: ->
           setTimeout ( -> $(klass).fadeIn()), 400
 
-  ready = ->
-    $('.vote_table').first().addClass('first').fadeIn()
-  $(document).on 'page:load', ready
-  ready()
+  $('.vote_table').first().addClass('first').fadeIn()
+
+$(document).on 'page:load', ready
+$ ready
