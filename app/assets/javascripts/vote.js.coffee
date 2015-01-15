@@ -11,8 +11,7 @@ $ ->
     id = last href.split('/')
     console.log "Upvote on", href
     $.post href, "", (resp) ->
-      console.log resp, id
-      $("##{id}").html resp
+      $("#vote_option#{id}").html resp
 
   $('.downvote').on 'click', (ev) ->
     ev.preventDefault()
@@ -23,5 +22,14 @@ $ ->
       type: 'DELETE'
       url: href
       success: (resp) ->
-        console.log resp, id
-        $("##{id}").html resp
+        $("#vote_option#{id}").html resp
+
+  $('.vote_header').on 'click', ->
+    id = $(this).context.id
+    klass = ".table#{id}"
+    unless $(klass).is ":visible"
+      $('.vote_table').fadeOut
+        done: ->
+          setTimeout ( -> $(klass).fadeIn()), 400
+
+  $('.vote_table').first().addClass('first').fadeIn()

@@ -1,7 +1,7 @@
 %p
-  on:
-  =event.date
-  %table
+  %hr
+  %h4.center-text.vote_header{id: event.id}= event.date
+  %table.vote_table{class: "table#{event.id}" }
     %tr
       %th Poster
       %th Name
@@ -13,7 +13,7 @@
           %img.small-avatar{id: "movie_poster_#{vote_option.movie.imdb_id}"}
           %span#movie_id.hidden= vote_option.movie.imdb_id
         %td= vote_option.movie.name
-        %td{id: vote_option.id }= vote_option.sum_of_votes
+        %td{id: "vote_option#{vote_option.id}" }= vote_option.sum_of_votes
         %td
           = link_to '+', "/vote/#{vote_option.id}", class: 'upvote'
         %td
