@@ -1,5 +1,7 @@
 %p
   %hr
+  - if current_user.try :admin?
+    = link_to 'Close', "/vote/close/#{event.id}", class: 'close-vote', method: "POST"
   %h4.center-text.vote_header{id: event.id}= event.date
   %table.vote_table{class: "table#{event.id}" }
     %tr

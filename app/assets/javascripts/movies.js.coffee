@@ -34,7 +34,6 @@ get_info_by_title = (title) ->
   get_info_with by_title_url, title
 
 update_movie_params = (get, movie_name) ->
-  console.log "Getting for #{movie_name}"
   get(movie_name).done (json) ->
     movie = {}
     try
@@ -45,7 +44,6 @@ update_movie_params = (get, movie_name) ->
       $('#movie_description').val movie.Plot
       $('#movie_link').val imdb_url movie.imdbID
       $('#movie_imdb_id').val movie.imdbID
-      console.log "Setting for #movie_poster/#{movie.imdbID}"
       $("#movie_poster").attr('src', movie.Poster).on 'load', ->
         $(this).fadeIn()
       $("#movie_poster_#{movie.imdbID}").attr('src', movie.Poster).on 'load', ->

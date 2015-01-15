@@ -2,9 +2,9 @@ require 'date'
 
 class EventsController < ApplicationController
   include ApplicationHelper
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :close]
   before_action :check_user
-  before_action :check_admin, only: [:edit, :update, :destroy]
+  before_action :check_admin, only: [:edit, :update, :destroy, :close]
 
   respond_to :html
 
@@ -43,6 +43,11 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
+    respond_with(@event)
+  end
+
+  def close
+    @event.set_winning_movie
     respond_with(@event)
   end
 

@@ -14,4 +14,8 @@ class Event < ActiveRecord::Base
     not vote_open?
   end
 
+  def set_winning_movie
+    self.movie = vote_options.max_by(&:sum_of_votes).movie
+    self.save!
+  end
 end
