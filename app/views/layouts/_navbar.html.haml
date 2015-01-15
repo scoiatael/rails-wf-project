@@ -2,17 +2,19 @@
   .navigation-wrapper
     %a.logo{:href => "/"}
       %h1 Wieczorki Filmowe
-    %a#js-mobile-menu.navigation-menu-button{:href => ""} MENU
-    .nav
-      %ul#navigation-menu
-        - if user_signed_in?
+    - if user_signed_in?
+      %a#js-mobile-menu.navigation-menu-button{:href => ""} MENU
+      .nav
+        %ul#navigation-menu
           %li.nav-link
             %a{:href => "/vote"} Vote
-            %a{:href => "/events"} Events
-            %a{:href => "/movies"} Movies
-        - if current_user.try :admin?
           %li.nav-link
-            = link_to 'Admin', admin_path
+            %a{:href => "/events"} Events
+          %li.nav-link
+            %a{:href => "/movies"} Movies
+          - if current_user.try :admin?
+            %li.nav-link
+              = link_to 'Admin', admin_path
 
 
     .navigation-tools

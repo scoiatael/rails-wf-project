@@ -7,7 +7,7 @@ $(document).ready ->
     menu.slideToggle ->
       menu.removeAttr "style"  if menu.is(":hidden")
 
-  
+
   # underline under the active nav item
   $(".nav .nav-link").click ->
     $(".nav .nav-link").each ->
