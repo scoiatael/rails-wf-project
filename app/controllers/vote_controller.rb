@@ -7,12 +7,12 @@ class VoteController < ApplicationController
 
   def up
     @vote.upvote_from current_user
-    redirect_to '/vote'
+    render plain: @vote.sum_of_votes
   end
 
   def down
     @vote.downvote_from current_user
-    redirect_to '/vote'
+    render plain: @vote.sum_of_votes
   end
 
   private

@@ -13,12 +13,8 @@
           %img.small-avatar{id: "movie_poster_#{vote_option.movie.imdb_id}"}
           %span#movie_id.hidden= vote_option.movie.imdb_id
         %td= vote_option.movie.name
-        %td= vote_option.votes_for.up.size - vote_option.votes_for.down.size
+        %td{id: vote_option.id }= vote_option.sum_of_votes
         %td
-          = link_to '+', "/vote/#{vote_option.id}", method: :post, data: { confirm: "Are you sure?\nUpvoting #{vote_option.id}" }
-          - for voter in vote_option.votes_for.up.voters.take 4
-            = voter.id
+          = link_to '+', "/vote/#{vote_option.id}", class: 'upvote'
         %td
-          = link_to '-', "/vote/#{vote_option.id}", method: :delete, data: { confirm: "Are you sure?\nDownvoting #{vote_option.id}" }
-          - for voter in vote_option.votes_for.down.voters.take 4
-            = voter.id
+          = link_to '-', "/vote/#{vote_option.id}", class: 'downvote'
