@@ -1,4 +1,5 @@
 class AdminController < ApplicationController
+  include ApplicationHelper
   before_action :check_admin
 
   def index

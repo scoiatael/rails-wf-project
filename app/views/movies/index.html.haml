@@ -4,7 +4,6 @@
     %tr
       %th
       %th Name
-      %th Link
       %th{:colspan => "3"}
   %tbody
     - @movies.each do |movie|
@@ -12,8 +11,8 @@
         %td
           %img.small-avatar{id: "movie_poster_#{movie.imdb_id}"}
           %span#movie_id.hidden= movie.imdb_id
-        %td= movie.name
-        %td= movie.link
+        %td
+          %a{href: movie.link}= movie.name
         %td= link_to 'Show', movie
         %td= link_to 'Edit', edit_movie_path(movie)
         - if current_user.try :admin?
