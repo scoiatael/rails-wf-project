@@ -1,4 +1,4 @@
-$(document).ready ->
+$(document).on "page:change", ->
   menu = $("#navigation-menu")
   menuToggle = $("#js-mobile-menu")
   signUp = $(".sign-up")

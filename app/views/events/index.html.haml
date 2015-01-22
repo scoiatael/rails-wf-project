@@ -9,7 +9,7 @@
     - @events.each do |event|
       %tr
         %td= event.date
-        %td= event.movie.name || event.movie.id
+        %td= event.movie && (event.movie.name || event.movie.id ) || "--"
         %td= link_to 'Show', event
         - if current_user.try :admin?
           %td= link_to 'Edit', edit_event_path(event)

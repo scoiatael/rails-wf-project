@@ -4,27 +4,17 @@
 #
 
 ready = ->
-  last = (arr) ->
-    arr[arr.length - 1]
+  penultimate = (arr) ->
+    arr[arr.length - 2]
 
-  $('.upvote').on 'click', (ev) ->
+  $('.vote').on 'click', (ev) ->
     ev.preventDefault()
     href = $(this).context.href
-    id = last href.split('/')
-    console.log "Upvote on", href
+    id = penultimate href.split('/')
+    console.log "Click on", href
     $.post href, "", (resp) ->
       $("#vote_option#{id}").html resp
-
-  $('.downvote').on 'click', (ev) ->
-    ev.preventDefault()
-    href = $(this).context.href
-    id = last href.split('/')
-    console.log "Downvote on", href
-    $.ajax
-      type: 'DELETE'
-      url: href
-      success: (resp) ->
-        $("#vote_option#{id}").html resp
+      console.log href, " resp ", resp, " id ", id
 
   $('.vote_header').on 'click', ->
     id = $(this).context.id

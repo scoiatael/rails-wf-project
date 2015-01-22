@@ -1,23 +1,18 @@
 .grid-items
   %a.grid-item{:href => "javascript:void(0)"}
-    %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png"}/
     %h1 Grid Item
     %p Lorem ipsum dolor sit amet, elit. Rem, illum.
   %a.grid-item.grid-item-big.grid-item-image{:href => "javascript:void(0)"}
-    %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png"}/
     %h1 Grid Item With an Image
     %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, illum.
   - if user_signed_in?
     %a.grid-item.grid-item-big{:href => "javascript:void(0)"}
-      %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png"}/
       %h1 Another Wide Item
       %p Lorem ipsum consectetur dolor sit amet, consectetur adipisicing elit. Rem, illum.
     %a.grid-item{:href => "/invite"}
-      %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png"}/
       %h1 Invite friend
       %p Have a friend? Invite him!
   - if current_user.try :admin?
     %a.grid-item.grid-item-full{:href => "/admin"}
-      %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png"}/
       %h1 Admin tools
       %p Create, edit and destroy users, events, movies and votes.

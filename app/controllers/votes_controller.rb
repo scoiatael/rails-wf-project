@@ -1,4 +1,4 @@
-class VoteController < ApplicationController
+class VotesController < ApplicationController
   before_action :check_user
   before_action :set_vote, only: [:up, :down]
 

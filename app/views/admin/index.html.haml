@@ -3,7 +3,6 @@
     .ribbon-wrapper
       .ribbon RIBBON
     .card-image
-      %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains-4.png"}/
     %a{href: "/users"}
       .card-header Users
       .card-copy
@@ -12,12 +11,11 @@
         %ul
           %li
             = pluralize(User.find_each.size, "user")
-            %span 
+            %span
               in database
 
   .card
     .card-image
-      %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains-3.png"}/
     %a{href: "/events"}
       .card-header Events
       .card-copy
@@ -26,12 +24,11 @@
         %ul
           %li
             = pluralize(Event.find_each.size, "event")
-            %span 
+            %span
               in database
 
   .card
     .card-image
-      %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png"}/
     %a{href: "/movies"}
       .card-header Movies
       .card-copy
@@ -40,5 +37,5 @@
         %ul
           %li
             = pluralize(Movie.find_each.size, "movie")
-            %span 
+            %span
               in database

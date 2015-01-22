@@ -7,11 +7,11 @@
       .nav
         %ul#navigation-menu
           %li.nav-link
-            %a{:href => "/vote"} Vote
+            = link_to "Vote", votes_path
           %li.nav-link
-            %a{:href => "/events"} Events
+            = link_to "Events", events_path
           %li.nav-link
-            %a{:href => "/movies"} Movies
+            = link_to "Movies", movies_path
           - if current_user.try :admin?
             %li.nav-link
               = link_to 'Admin', admin_path

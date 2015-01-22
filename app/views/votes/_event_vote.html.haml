@@ -1,7 +1,7 @@
 %p
   %hr
   - if current_user.try :admin?
-    = link_to 'Close', "/vote/close/#{event.id}", class: 'close-vote', method: "POST"
+    = link_to 'Close', close_event_path(event), class: 'close-vote', method: "POST"
   %h4.center-text.vote_header{id: event.id}= event.date
   %table.vote_table{class: "table#{event.id}" }
     %tr
@@ -17,6 +17,7 @@
         %td= vote_option.movie.name
         %td{id: "vote_option#{vote_option.id}" }= vote_option.sum_of_votes
         %td
-          = link_to '+', "/vote/#{vote_option.id}", class: 'upvote'
+          = link_to '+', up_vote_path(vote_option), class: 'vote'
         %td
-          = link_to '-', "/vote/#{vote_option.id}", class: 'downvote'
+          = link_to '-', down_vote_path(vote_option), class: 'vote'
+
