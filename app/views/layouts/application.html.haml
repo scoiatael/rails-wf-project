@@ -2,13 +2,15 @@
 %html
   %head
     %title WieczorkiFilmowe
+    = stylesheet_link_tag 'font-awesome.min.css', media: 'all'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', media: 'all'
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
     = render 'layouts/navbar'
     .content
       = render 'layouts/flash'
       = yield
+    = javascript_include_tag 'promise-4.0.0.js'
+    = javascript_include_tag 'underscore.min.js'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
 //    = render 'layouts/footer'
