@@ -5,5 +5,6 @@
 - mail account confirmation
 - who-invited-whom db
 - admin users view
+- name change option
 - facebook login
 - event discussion
