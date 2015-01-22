@@ -2,7 +2,8 @@
 + refactor stylesheets
 + refactor controllers
 + make movie links work
-- mail account confirmation
++ mail account confirmation
+- fix invite-only
 - who-invited-whom db
 - admin users view
 - name change option
