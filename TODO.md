@@ -8,3 +8,4 @@
 - name change option
 - facebook login
 - event discussion
+- populate empty tiles (map, idea, etc)

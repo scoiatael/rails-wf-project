@@ -6,16 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    invitation_id = invitation_params['invitation']
-    valid_invitation = Invitation.find_by id_hash: invitation_id
-    valid_invitation.delete
-    unless valid_invitation
-      self.resource = User.new resource_params
-      flash.now.alert = "You haven't been invited!"
-      render 'new'
-    else
-      super
-    end
+    super
   end
 
   private
