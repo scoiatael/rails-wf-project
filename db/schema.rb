@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150122203252) do
+ActiveRecord::Schema.define(version: 20150123214917) do
 
   create_table "events", force: true do |t|
     t.date     "date"
@@ -61,11 +61,15 @@ ActiveRecord::Schema.define(version: 20150122203252) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.integer  "users_id"
+    t.integer  "user_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["user_id"], name: "index_users_on_user_id"
+  add_index "users", ["users_id"], name: "index_users_on_users_id"
 
   create_table "vote_options", force: true do |t|
     t.integer  "movie_id"
