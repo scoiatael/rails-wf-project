@@ -3,7 +3,8 @@
 + refactor controllers
 + make movie links work
 + mail account confirmation
-- fix invite-only
++ fix invite-only
+- fix signup on heroku
 - who-invited-whom db
 - admin users view
 - name change option
