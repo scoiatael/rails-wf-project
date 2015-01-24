@@ -16,6 +16,7 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
   config.assets.raise_runtime_errors = true
+  config.consider_all_requests_local       = true
   config.action_mailer.default_url_options = { host: 'https://powerful-river-9464.herokuapp.com' }
   config.action_mailer.smtp_settings = {
     :address        => 'smtp.gmail.com',
