@@ -7,6 +7,9 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
+    # check invited_by param
+    # check invitations for that email
+    # set user.user to whoever created that invite if applicable
   end
 
   private

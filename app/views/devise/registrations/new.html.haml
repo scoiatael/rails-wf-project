@@ -1,7 +1,7 @@
 .form
   %h2 Sign up
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    = hidden_field_tag :invitation, @id_hash
+    = hidden_field_tag :invited_by, @id_hash
     = devise_error_messages!
     .field
       = f.label :email
