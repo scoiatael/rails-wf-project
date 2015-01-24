@@ -15,8 +15,6 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
 
   config.action_mailer.raise_delivery_errors = true
-  config.assets.raise_runtime_errors = true
-  config.consider_all_requests_local       = true
 
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.delivery_method = :smtp
