@@ -18,6 +18,7 @@ gem 'acts_as_votable'
 gem 'virtus'
 gem 'bcrypt'
 gem 'unicorn'
+gem 'exception_handler'
 
 group :production do
   gem 'pg'

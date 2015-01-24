@@ -66,6 +66,7 @@ GEM
       warden (~> 1.2.3)
     equalizer (0.0.9)
     erubis (2.7.0)
+    exception_handler (0.3.45)
     execjs (2.2.2)
     haml (4.1.0.beta.1)
       tilt
@@ -187,6 +188,7 @@ DEPENDENCIES
   cocoon
   coffee-rails (~> 4.0.0)
   devise
+  exception_handler
   haml
   html2haml
   jbuilder (~> 2.0)

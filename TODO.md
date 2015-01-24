@@ -4,7 +4,8 @@
 + make movie links work
 + mail account confirmation
 + fix invite-only
-- fix signup on heroku
++ fix signup on heroku
+- add mail to error pages
 - who-invited-whom db
 - admin users view
 - name change option
