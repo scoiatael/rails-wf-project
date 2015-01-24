@@ -14,14 +14,17 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  config.assets.raise_runtime_errors = true
   config.action_mailer.default_url_options = { host: 'https://powerful-river-9464.herokuapp.com' }
   config.action_mailer.smtp_settings = {
     :address        => 'smtp.gmail.com',
-    :port           => '465',
+    :port           => 587,
     :authentication => :plain,
     :user_name      => ENV['GMAIL_USERNAME'],
     :password       => ENV['GMAIL_PASSWORD'],
-    :enable_starttls_auto => true
+    :enable_starttls_auto => true,
+    :tls                  => true,
+    :domain             => 'gmail.com'
   }
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
@@ -52,7 +55,7 @@ Rails.application.configure do
   config.force_ssl = true
 
   # Set to :debug to see everything in the log.
-  config.log_level = :info
+  config.log_level = :debug
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
