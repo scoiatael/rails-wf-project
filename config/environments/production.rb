@@ -17,17 +17,19 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.assets.raise_runtime_errors = true
   config.consider_all_requests_local       = true
-  config.action_mailer.default_url_options = { host: 'https://powerful-river-9464.herokuapp.com' }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
-    :address        => 'smtp.gmail.com',
-    :port           => 587,
-    :authentication => :login,
-    :user_name      => ENV['GMAIL_USERNAME'],
-    :password       => ENV['GMAIL_PASSWORD'],
-    :enable_starttls_auto => true,
-    :tls                  => true,
-    :domain             => 'gmail.com'
-  }
+      enable_starttls_auto: true,
+      address:              'smtp.gmail.com',
+      port:                 587,
+      domain:               'gmail.com',
+      :user_name      => ENV['GMAIL_USERNAME'],
+      :password       => ENV['GMAIL_PASSWORD'],
+      authentication:       :login
+    }
+  config.action_mailer.default_url_options = { host: 'https://powerful-river-9464.herokuapp.com' }
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
