@@ -3,17 +3,26 @@ class InvitationController < ApplicationController
 
   def index
     InvitationHelper::remove_invalid
-    current_user.invitation = Invitation.create user: current_user unless current_user.invitation
-
-    invitation = current_user.invitation
-    current_user.save
-    host = request.host_with_port
-    @link = "https://#{host}#{new_user_registration_path}?invitation=#{invitation.id_hash}"
-    # change to current host from devise default mailer
   end
 
-  def create
-    # create invitation for given email
+
+  def generate_link
+    invitation = Invitation.create user: current_user
+
+    host = request.host_with_port
+    link = "https://#{host}#{new_user_registration_path}?invitation=#{invitation.id_hash}"
+    # change to current host from devise default mailer
+    render plain: link
+  end
+
+  def for_email
+    Invitation.new(user: current_user).for_email!(email_params['email']).save!
     # send mail notifying them
+    render plain: "OK"
+  end
+
+  private
+  def email_params
+    params.permit(:email)
   end
 end

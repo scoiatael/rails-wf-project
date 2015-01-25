@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
 
-  has_one :invitation
+  has_many :invitation
   belongs_to :user
+  has_many :referrals, :foreign_key => 'user_id', :class_name => "User"
 
   def admin?
     self.role == 'admin'

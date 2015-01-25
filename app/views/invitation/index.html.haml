@@ -1,2 +1,13 @@
-%h2 Send this link to a friend:
-%textarea.link{readonly: true}=@link
+.form
+  %div
+    = link_to 'with link', invite_link_path, id: "invitation-link"
+    .hidden#invitation-link-input
+      %h2 Send this link to a friend:
+      %textarea.link{readonly: true}
+  %div
+    = link_to 'with email', invite_email_path, id: "invitation-email"
+    .hidden#invitation-email-input
+      %h2 Enter email:
+      %textarea.link
+      %p.hidden Sent
+      %button OK

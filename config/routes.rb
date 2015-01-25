@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get 'user/:id' => 'admin#user'
 
   get 'invite' => 'invitation#index'
+  post 'invite/email' => 'invitation#for_email'
+  get 'invite/link' => 'invitation#generate_link'
 
   resources :votes, only: [:index, :create, :destroy] do
     member do
