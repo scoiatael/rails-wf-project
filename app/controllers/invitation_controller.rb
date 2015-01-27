@@ -2,7 +2,7 @@ class InvitationController < ApplicationController
   before_action :check_user
 
   def index
-    InvitationHelper::remove_invalid
+    InvitationHelper::remove_invalid!
   end
 
 

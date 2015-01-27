@@ -1,15 +1,20 @@
 class RegistrationsController < Devise::RegistrationsController
 
   def new
-    @id_hash = invitation_params['invitation']
     super
   end
 
   def create
-    super
-    # check invited_by param
-    # check invitations for that email
-    # set user.user to whoever created that invite if applicable
+    super do |user|
+      InvitationHelper::remove_invalid!
+      matching_invitations = InvitationHelper::find_for_hash(invited_by) + InvitationHelper::find_for_email(user.email)
+      invitation = matching_invitations.first
+      if invitation
+        user.user = invitation.user
+        user.save
+      end
+      matching_invitations.each { |i| i.destroy }
+    end
   end
 
   private
@@ -17,8 +22,8 @@ class RegistrationsController < Devise::RegistrationsController
     params.require('user').permit :email, :password, :password_confirmation, :id
   end
 
-  def invitation_params
-    params.permit('invitation')
+  def invited_by
+    params.permit('invited_by')['invited_by']
   end
 
 end
