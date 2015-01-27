@@ -8,16 +8,13 @@ class InvitationController < ApplicationController
 
   def generate_link
     invitation = Invitation.create user: current_user
-
-    host = request.host_with_port
-    link = "https://#{host}#{new_user_registration_path}?invitation=#{invitation.id_hash}"
-    # change to current host from devise default mailer
-    render plain: link
+    render plain: "#{InvitationHelper::join_url}?invitation=#{invitation.id_hash}"
   end
 
   def for_email
-    Invitation.new(user: current_user).for_email!(email_params['email']).save!
-    # send mail notifying them
+    email = email_params['email']
+    Invitation.new(user: current_user).for_email!(email).save!
+    Notifier.been_invited(email, by: current_user).deliver
     render plain: "OK"
   end
 

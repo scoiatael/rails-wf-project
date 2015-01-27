@@ -11,5 +11,9 @@ module InvitationHelper
     def find_for_hash hash
       Invitation.find_by(id_hash: hash) || []
     end
+
+    def join_url
+      Rails.application.routes.url_helpers.new_user_registration_url
+    end
   end
 end

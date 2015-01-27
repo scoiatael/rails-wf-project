@@ -14,6 +14,8 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  config.action_mailer.default_url_options = { host: 'https://powerful-river-9464.herokuapp.com' }
+
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.default :charset => "utf-8"
@@ -28,7 +30,6 @@ Rails.application.configure do
       :password       => ENV['GMAIL_PASSWORD'],
       authentication:       :plain
     }
-  config.action_mailer.default_url_options = { host: 'https://powerful-river-9464.herokuapp.com' }
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.

@@ -12,8 +12,10 @@ class RegistrationsController < Devise::RegistrationsController
       if invitation
         user.user = invitation.user
         user.save
+        matching_invitations.each { |i| i.destroy }
+      else
+        Notifier.new_user(user).deliver
       end
-      matching_invitations.each { |i| i.destroy }
     end
   end
 
