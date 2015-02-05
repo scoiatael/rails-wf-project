@@ -1,5 +1,4 @@
-%p
-  %hr
+%div
   - if current_user.try :admin?
     = link_to 'Close', close_event_path(event), class: 'close-vote', method: "POST"
   %h4.center-text.vote_header{id: event.id}= event.date

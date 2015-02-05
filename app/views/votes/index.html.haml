@@ -1,7 +1,8 @@
-%h2 Vote:
 - if current_user.try :admin?
-  %p
-    = link_to 'New', new_event_path
+  %p.float-right
+    = link_to new_event_path do
+      %i.fa.fa-plus.fa-2x New event
+%h1 Vote:
 
 - unless votable_events.empty?
   - for event in votable_events

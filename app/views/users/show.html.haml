@@ -1,6 +1,5 @@
 .form
   %p#notice= notice
-
   %table
     - User.statistics.each do |statistic|
       %tr
@@ -11,12 +10,25 @@
     %tr
       %td
         %strong Approved by :
-      - if @user.user.nil?
-        %td= link_to("Approve", user_path(@user, query: 'approve'), method: :put, data: { confirm: "Are you sure? Approving #{@user.email}" })
-      -else
-        %td= @user.user.name || @user.user.email
-  = link_to 'Promote', user_path(@user, query: 'promote'), method: :put, data: { confirm: "Are you sure? Promoting #{@user.email}" }
-  |
-  = link_to 'Destroy', user_path(@user), method: :delete, data: { confirm: "Are you sure? Deleting #{@user.email}" }
-  |
-  = link_to 'Back', users_path
+      %td
+        - if @user.user.nil?
+          = link_to("Approve", user_path(@user, query: 'approve'), method: :put, data: { confirm: "Are you sure? Approving #{@user.email}" })
+        -else
+          = @user.user.name || @user.user.email
+    %tr
+      %td
+        %strong Role :
+      %td
+        = @user.role
+        - unless @user.admin?
+          = link_to user_path(@user, query: 'promote'), method: :put, data: { confirm: "Are you sure? Promoting #{@user.email}" } do
+            %i.fa.fa-level-up
+    %tr
+      %td
+        %strong Destroy :
+      %td
+        = link_to user_path(@user), method: :delete, data: { confirm: "Are you sure? Deleting #{@user.email}" } do
+          %i.fa.fa-minus-circle.red
+    = link_to users_path do
+      %i.fa.fa-backward.fa-2x
+

@@ -68,6 +68,8 @@ GEM
     erubis (2.7.0)
     exception_handler (0.3.45)
     execjs (2.2.2)
+    font-awesome-rails (4.3.0.0)
+      railties (>= 3.2, < 5.0)
     haml (4.1.0.beta.1)
       tilt
     hike (1.2.3)
@@ -189,6 +191,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   exception_handler
+  font-awesome-rails
   haml
   html2haml
   jbuilder (~> 2.0)

@@ -19,6 +19,7 @@ gem 'virtus'
 gem 'bcrypt'
 gem 'unicorn'
 gem 'exception_handler'
+gem "font-awesome-rails"
 
 group :production do
   gem 'pg'
