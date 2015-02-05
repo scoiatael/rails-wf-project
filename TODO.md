@@ -8,6 +8,7 @@
 + add mail to error pages
 + who-invited-whom db
 + admin users view
+- fix invite view
 - name change option
 - facebook login
 - event discussion
