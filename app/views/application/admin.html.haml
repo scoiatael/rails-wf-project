@@ -3,7 +3,7 @@
     .ribbon-wrapper
       .ribbon RIBBON
     .card-image
-    %a{href: "/users"}
+    = link_to(users_path) do
       .card-header Users
       .card-copy
         %p Tools for user management.
