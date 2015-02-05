@@ -11,6 +11,9 @@
       %tr
         %td= user.email
         %td= user.name
-        %td= user.user.nil? ? link_to("Approve", user_path(user), method: :put) : (user.user.name || user.user_id)
+        - if user.user.nil?
+          %td= link_to("Approve", user_path(user), method: :put, data: { confirm: "Are you sure? Approving #{user.email}" })
+        -else
+          %td= user.user.name || user.user.email
         %td= link_to 'Show', user_path(user)
-        %td= link_to 'Destroy', user_path(user), method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Destroy', user_path(user), method: :delete, data: { confirm: "Are you sure? Deleting #{user.email}" }

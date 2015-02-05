@@ -1,49 +1,22 @@
 .form
   %p#notice= notice
+
   %table
+    - User.statistics.each do |statistic|
+      %tr
+        %td
+          %strong= statistic.humanize + " :"
+        %td
+          = @user.send statistic.to_sym
     %tr
       %td
-        %strong Name :
-      %td
-        = @user.name
-    %tr
-      %td
-        %strong Email :
-      %td
-        = @user.email
-    %tr
-      %td
-        %strong Seen times :
-      %td
-        =  @user.sign_in_count
-    %tr
-      %td
-        %strong Current login :
-      %td
-        =  @user.current_sign_in_at
-    %tr
-      %td
-        %strong Last login :
-      %td
-        =  @user.last_sign_in_at
-    %tr
-      %td
-        %strong Last IP :
-      %td
-        =  @user.last_sign_in_ip
-    %tr
-      %td
-        %strong Current IP :
-      %td
-        =  @user.current_sign_in_ip
-    %tr
-      %td
-        %strong Created at :
-      %td
-        =  @user.created_at
-    %tr
-      %td
-        %strong Role :
-      %td
-        =  @user.role
-  \#{link_to 'Back', users_path}
+        %strong Approved by :
+      - if @user.user.nil?
+        %td= link_to("Approve", user_path(@user, query: 'approve'), method: :put, data: { confirm: "Are you sure? Approving #{@user.email}" })
+      -else
+        %td= @user.user.name || @user.user.email
+  = link_to 'Promote', user_path(@user, query: 'promote'), method: :put, data: { confirm: "Are you sure? Promoting #{@user.email}" }
+  |
+  = link_to 'Destroy', user_path(@user), method: :delete, data: { confirm: "Are you sure? Deleting #{@user.email}" }
+  |
+  = link_to 'Back', users_path

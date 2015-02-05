@@ -28,4 +28,18 @@ class User < ActiveRecord::Base
       super
     end
   end
+
+  def self.statistics
+    %w(
+      name
+      email
+      sign_in_count
+      current_sign_in_at
+      last_sign_in_at
+      last_sign_in_ip
+      current_sign_in_ip
+      created_at
+      role
+    )
+  end
 end
