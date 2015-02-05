@@ -5,6 +5,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find id_param
+  end
+
+  def destroy
+    @user = User.destroy id_param
+  end
+
+  private
+
+  def id_param
+    params.require(:id)
   end
 end

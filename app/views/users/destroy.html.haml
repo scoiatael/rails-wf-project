@@ -1,0 +1,30 @@
+.form
+  %p#notice= notice
+  %table
+    %tr
+      %td
+        %strong Email :
+      %td
+        = @user.email
+    %tr
+      %td
+        %strong Seen times :
+      %td
+        =  @user.sign_in_count
+    %tr
+      %td
+        %strong Last login :
+      %td
+        =  @user.last_sign_in_at
+    %tr
+      %td
+        %strong Created at :
+      %td
+        =  @user.created_at
+    %tr
+      %td
+        %strong Role :
+      %td
+        =  @user.role
+  %h2 is gone!
+  \#{link_to 'Back', users_path}
