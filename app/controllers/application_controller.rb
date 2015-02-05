@@ -3,12 +3,23 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_action :check_admin, only: :admin
+
   def index
-    render "layouts/index"
+  end
+
+  def admin
   end
 
   protected
   def check_user
     redirect_to new_user_registration_path unless user_signed_in?
+  end
+
+  def check_admin
+    unless current_user.try :admin?
+      flash[:error] = "Only admin can do that!"
+      redirect_to root_path
+    end
   end
 end
