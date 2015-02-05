@@ -11,6 +11,11 @@
 @import 'partials/admin'
 @import font-awesome
 
+$font-stack: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif
+
+.clear-font
+  font-family: $font-stack
+
 body
   margin: 0px
   +transition(all 0.3s)
@@ -67,7 +72,8 @@ body
 
 .close-vote
   @extend button
-  float: left
+  float: right
+  background-color: red
 
 .float-right
   float: right
@@ -80,3 +86,21 @@ body
 
 .red
   color: red
+
+.bg-red
+  background-color: red
+
+.expander
+  margin-bottom: 1em
+
+.vote_header
+  @extend a
+  display: block
+  border-bottom: 1px solid #DDD
+
+.top-menu-bar
+  margin-top: 1em
+
+.logo
+  color: white
+  margin: 5px

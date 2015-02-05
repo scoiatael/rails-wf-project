@@ -1,9 +1,8 @@
 - if current_user.try :admin?
   %p.float-right
     = link_to new_event_path do
-      %i.fa.fa-plus.fa-2x New event
-%h1 Vote:
-
+      %i.fa.fa-plus.fa-2x
+%h1 Events:
 - unless votable_events.empty?
   - for event in votable_events
     = render 'event_vote', :event => event

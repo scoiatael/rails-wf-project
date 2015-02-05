@@ -11,10 +11,8 @@ ready = ->
     ev.preventDefault()
     href = $(this).context.href
     id = penultimate href.split('/')
-    console.log "Click on", href
     $.post href, "", (resp) ->
       $("#vote_option#{id}").html resp
-      console.log href, " resp ", resp, " id ", id
 
   $('.vote_header').on 'click', ->
     id = $(this).context.id

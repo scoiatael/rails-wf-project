@@ -46,7 +46,7 @@ update_movie_params = (get, movie_name) ->
       $('#movie_imdb_id').val movie.imdbID
       $("#movie_poster").attr('src', movie.Poster).on 'load', ->
         $(this).fadeIn()
-      $("#movie_poster_#{movie.imdbID}").attr('src', movie.Poster).on 'load', ->
+      $(".movie_poster_#{movie.imdbID}").attr('src', movie.Poster).on 'load', ->
         $(this).fadeIn()
     else
       $('#movie_imdb_id').val ""

@@ -1,20 +1,20 @@
 %header.navigation
   .navigation-wrapper
-    %a.logo{:href => "/"}
-      %h1 Wieczorki Filmowe
+    = link_to root_path do
+      %i.fa.fa-film.fa-3x.logo
     - if user_signed_in?
       %a#js-mobile-menu.navigation-menu-button{:href => ""} MENU
       .nav
         %ul#navigation-menu
           %li.nav-link
-            = link_to "Vote", votes_path
+            = link_to "Vote", votes_path, class: "top-menu-bar"
           %li.nav-link
-            = link_to "Events", events_path
+            = link_to "Events", events_path, class: "top-menu-bar"
           %li.nav-link
-            = link_to "Movies", movies_path
+            = link_to "Movies", movies_path, class: "top-menu-bar"
           - if current_user.try :admin?
             %li.nav-link
-              = link_to 'Admin', admin_path
+              = link_to 'Admin', admin_path, class: "top-menu-bar"
 
 
     .navigation-tools

@@ -1,22 +1,29 @@
-%div
-  - if current_user.try :admin?
-    = link_to 'Close', close_event_path(event), class: 'close-vote', method: "POST"
-  %h4.center-text.vote_header{id: event.id}= event.date
-  %table.vote_table{class: "table#{event.id}" }
-    %tr
-      %th Poster
-      %th Name
-      %th Size
-      %th{colspan: 2} Vote
-    - for vote_option in event.vote_options
+.expander
+  .vote_header{id: event.id}
+    %i.fa.fa-forward.fa-lg
+      %span.clear-font= event.date
+  .vote_table{class: "table#{event.id}" }
+    - if current_user.try :admin?
+      = link_to close_event_path(event), class: 'close-vote', method: "POST" do
+        %i.fa.fa-lock
+          %span.clear-font Close
+    %table
       %tr
-        %td
-          %img.small-avatar{id: "movie_poster_#{vote_option.movie.imdb_id}"}
-          %span#movie_id.hidden= vote_option.movie.imdb_id
-        %td= vote_option.movie.name
-        %td{id: "vote_option#{vote_option.id}" }= vote_option.sum_of_votes
-        %td
-          = link_to '+', up_vote_path(vote_option), class: 'vote'
-        %td
-          = link_to '-', down_vote_path(vote_option), class: 'vote'
+        %th Poster
+        %th Name
+        %th Score
+        %th{colspan: 2} Vote
+      - for vote_option in event.vote_options
+        %tr
+          %td
+            %img.small-avatar{class: "movie_poster_#{vote_option.movie.imdb_id}"}
+            %span#movie_id.hidden= vote_option.movie.imdb_id
+          %td= vote_option.movie.name
+          %td{id: "vote_option#{vote_option.id}" }= vote_option.sum_of_votes
+          %td
+            = link_to up_vote_path(vote_option), class: 'vote' do
+              %i.fa.fa-thumbs-o-up.fa-lg
+          %td
+            = link_to down_vote_path(vote_option), class: 'vote' do
+              %i.fa.fa-thumbs-o-down.fa-lg
 

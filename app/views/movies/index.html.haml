@@ -9,7 +9,7 @@
     - @movies.each do |movie|
       %tr
         %td
-          %img.small-avatar{id: "movie_poster_#{movie.imdb_id}"}
+          %img.small-avatar{class: "movie_poster_#{movie.imdb_id}"}
           %span#movie_id.hidden= movie.imdb_id
         %td
           %a{href: movie.link}= movie.name
