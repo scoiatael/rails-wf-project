@@ -6,6 +6,8 @@
     = javascript_include_tag 'promise-4.0.0.js', 'data-turbolinks-track' => true
     = javascript_include_tag 'underscore-min.js', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %script{src: "https://maps.googleapis.com/maps/api/js?v=3.exp"}
+
     = csrf_meta_tags
   %body
     = render 'layouts/navbar'

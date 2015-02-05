@@ -1,7 +1,33 @@
 .cards
   .card
-    .ribbon-wrapper
-      .ribbon RIBBON
+    .card-image
+    = link_to(events_path) do
+      .card-header Events
+      .card-copy
+        %p Tools for event management.
+      .card-stats
+        %ul
+          %li
+            %i.fa.fa-calendar-o.fa-2x
+          %li
+            = pluralize(Event.find_each.size, "event")
+            %span
+              in database
+  .card
+    .card-image
+    = link_to(movies_path) do
+      .card-header Movies
+      .card-copy
+        %p Tools for movies management.
+      .card-stats
+        %ul
+          %li
+            %i.fa.fa-video-camera.fa-2x
+          %li
+            = pluralize(Movie.find_each.size, "movie")
+            %span
+              in database
+  .card
     .card-image
     = link_to(users_path) do
       .card-header Users
@@ -9,6 +35,8 @@
         %p Tools for user management.
       .card-stats
         %ul
+          %li
+            %i.fa.fa-users.fa-2x
           %li
             = pluralize(User.find_each.size, "user")
             %span

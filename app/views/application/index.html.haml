@@ -1,18 +1,25 @@
 .grid-items
-  %a.grid-item{:href => "javascript:void(0)"}
-    %h1 Grid Item
-    %p Lorem ipsum dolor sit amet, elit. Rem, illum.
-  %a.grid-item.grid-item-big.grid-item-image{:href => "javascript:void(0)"}
-    %h1 Grid Item With an Image
-    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, illum.
   - if user_signed_in?
-    %a.grid-item.grid-item-big{:href => "javascript:void(0)"}
-      %h1 Another Wide Item
-      %p Lorem ipsum consectetur dolor sit amet, consectetur adipisicing elit. Rem, illum.
-    %a.grid-item{:href => "/invite"}
+    = link_to movies_path, class: "grid-item" do
+      %h1 Movies
+      %p Add new movies
+      %i.fa.fa-video-camera.fa-4x.logo
+    = link_to votes_path, class: ['grid-item', 'grid-item-big', 'grid-item-image'] do
+      %h1 Votes
+      %p Vote for next event!
+      %i.fa.fa-thumbs-o-up.fa-4x.logo
+    = link_to events_path, class: ['grid-item', 'grid-item-big'] do
+      %h1 Events
+      %p Things we've done so far
+      %i.fa.fa-calendar-o.fa-4x.logo
+    = link_to invite_path, class: 'grid-item' do
       %h1 Invite friend
       %p Have a friend? Invite him!
-  - if current_user.try :admin?
-    %a.grid-item.grid-item-full{:href => "/admin"}
-      %h1 Admin tools
-      %p Create, edit and destroy users, events, movies and votes.
+      %i.fa.fa-user-plus.fa-4x.logo
+    - if current_user.try :admin?
+      = link_to admin_path, class: ['grid-item', 'grid-item-full'] do
+        %h1 Admin tools
+        %p Create, edit and destroy users, events, movies and votes.
+        %i.fa.fa-connectdevelop.fa-4x.logo
+  - else
+    #map-canvas

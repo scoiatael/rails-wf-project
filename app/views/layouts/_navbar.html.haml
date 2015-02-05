@@ -12,6 +12,8 @@
             = link_to "Events", events_path, class: "top-menu-bar"
           %li.nav-link
             = link_to "Movies", movies_path, class: "top-menu-bar"
+          %li.nav-link
+            = link_to "Invite", invite_path, class: 'top-menu-bar'
           - if current_user.try :admin?
             %li.nav-link
               = link_to 'Admin', admin_path, class: "top-menu-bar"
