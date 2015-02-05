@@ -12,6 +12,10 @@ class UsersController < ApplicationController
     @user = User.destroy id_param
   end
 
+  def update
+    @user = User.find(id_param).tap { |user| user.user = current_user; user.save! }
+  end
+
   private
 
   def id_param

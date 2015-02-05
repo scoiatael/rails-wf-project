@@ -1,0 +1,20 @@
+.form
+  %p#notice= notice
+  %table
+    %tr
+      %td
+        %strong Email :
+      %td
+        = @user.email
+    %tr
+      %td
+        %strong Created at :
+      %td
+        =  @user.created_at
+    %tr
+      %td
+        %strong Role :
+      %td
+        =  @user.role
+  %h2 is approved!
+  \#{link_to 'Back', users_path}

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get 'admin' => 'application#admin'
 
-  resources :users, only: [:index, :show, :destroy]
+  resources :users, only: [:index, :show, :destroy, :update]
 
   get 'invite' => 'invitation#index'
   post 'invite/email' => 'invitation#for_email'
