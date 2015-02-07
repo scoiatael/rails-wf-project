@@ -4,6 +4,13 @@
       %span.clear-font= event.date
   .vote_table{class: "table#{event.id}" }
     - if current_user.try :admin?
+      %span
+        = event.votes_for.size
+        votes
+      %span
+        from
+        = event.user_voted.size
+        users
       = link_to close_event_path(event), class: 'close-vote', method: "POST" do
         %i.fa.fa-lock
           %span.clear-font Close
