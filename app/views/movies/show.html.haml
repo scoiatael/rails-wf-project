@@ -1,5 +1,7 @@
 .form
   %p#notice= notice
+  = link_to movies_path, class: "backward" do
+    %i.fa.fa-backward.fa-2x
   %p
     %strong Name:
     = @movie.name
@@ -13,6 +15,4 @@
     %strong Description:
     = @movie.description
   = link_to 'Edit', edit_movie_path(@movie)
-  |
-  \#{link_to 'Back', movies_path}
 %img#movie_poster.beside-form.hidden

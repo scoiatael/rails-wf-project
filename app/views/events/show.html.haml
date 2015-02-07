@@ -1,4 +1,6 @@
 .form
+  = link_to events_path, class: "backward" do
+    %i.fa.fa-backward.fa-2x
   %p
     %strong Date:
     = @event.date
@@ -17,5 +19,3 @@
       = @event.movie.name
   - if current_user.try :admin?
     = link_to 'Edit', edit_event_path(@event)
-    |
-  \#{link_to 'Back', events_path}

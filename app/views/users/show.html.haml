@@ -1,5 +1,7 @@
 .form
   %p#notice= notice
+  = link_to users_path, class: "backward" do
+    %i.fa.fa-backward.fa-2x
   %table
     - User.statistics.each do |statistic|
       %tr
@@ -29,6 +31,4 @@
       %td
         = link_to user_path(@user), method: :delete, data: { confirm: "Are you sure? Deleting #{@user.email}" } do
           %i.fa.fa-minus-circle.red
-    = link_to users_path do
-      %i.fa.fa-backward.fa-2x
 
