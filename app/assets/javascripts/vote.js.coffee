@@ -11,8 +11,14 @@ ready = ->
     ev.preventDefault()
     href = $(this).context.href
     id = penultimate href.split('/')
+    $loading = $(".loading_#{id}")
+    $data = $(".data_#{id}")
+    $data.hide(0, -> $loading.show() )
     $.post href, "", (resp) ->
       $("#vote_option#{id}").html resp
+      console.log 'loaded!'
+      $loading.addClass 'loaded'
+      $loading.hide(0, -> $data.show() )
 
   $('.vote_header').on 'click', ->
     id = $(this).context.id

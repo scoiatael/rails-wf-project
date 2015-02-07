@@ -19,11 +19,12 @@
             %img.small-avatar{class: "movie_poster_#{vote_option.movie.imdb_id}"}
             %span#movie_id.hidden= vote_option.movie.imdb_id
           %td= vote_option.movie.name
-          %td{id: "vote_option#{vote_option.id}" }= vote_option.sum_of_votes
-          %td
+          %td.hidden{colspan: 3, class: "loading_#{vote_option.id}"}= render 'layouts/loading'
+          %td{id: "vote_option#{vote_option.id}", class: "data_#{vote_option.id}" }= vote_option.sum_of_votes
+          %td{ class: "data_#{vote_option.id}" }
             = link_to up_vote_path(vote_option), class: 'vote' do
               %i.fa.fa-thumbs-o-up.fa-lg
-          %td
+          %td{ class: "data_#{vote_option.id}" }
             = link_to down_vote_path(vote_option), class: 'vote' do
               %i.fa.fa-thumbs-o-down.fa-lg
 

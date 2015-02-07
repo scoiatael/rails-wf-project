@@ -1,11 +1,17 @@
 .form
   %div
-    = link_to 'with link', invite_link_path, id: "invitation-link"
+    = link_to invite_link_path, id: "invitation-link", class: "vote_header" do
+      %i.fa.fa-forward.fa-lg
+        %span.clear-font with link
+    .hidden#invitation-link-loading= render 'layouts/loading'
     .hidden#invitation-link-input
       %h2 Send this link to a friend:
       %textarea.link{readonly: true}
   %div
-    = link_to 'with email', invite_email_path, id: "invitation-email"
+    = link_to invite_email_path, id: "invitation-email", class: "vote_header" do
+      %i.fa.fa-forward.fa-lg
+        %span.clear-font with email
+    .hidden#invitation-email-loading= render 'layouts/loading'
     .hidden#invitation-email-input
       %h2 Enter email:
       %textarea.link

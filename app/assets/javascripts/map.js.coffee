@@ -1,12 +1,16 @@
 
 ready = ->
+  return unless google and google.maps
   iiLatLng = new google.maps.LatLng(51.110898149199606, 17.05341249704361)
   mapOptions = {
     zoom: 15,
     center: iiLatLng
   }
 
-  map = new google.maps.Map(document.getElementById('map-canvas'),
+  map_mount_point = document.getElementById('map-canvas')
+  return unless map_mount_point
+
+  map = new google.maps.Map(map_mount_point,
       mapOptions)
 
 
