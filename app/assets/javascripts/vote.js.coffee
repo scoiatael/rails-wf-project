@@ -9,16 +9,19 @@ ready = ->
 
   $('.vote').on 'click', (ev) ->
     ev.preventDefault()
-    href = $(this).context.href
+    $this =$(this)
+    return if $this.hasClass "disabled"
+    href = $this.context.href
     id = penultimate href.split('/')
     $loading = $(".loading_#{id}")
     $data = $(".data_#{id}")
     $data.hide(0, -> $loading.show() )
+    $data.children().removeClass 'disabled'
     $.post href, "", (resp) ->
+      $this.addClass('disabled')
       $("#vote_option#{id}").html resp
-      console.log 'loaded!'
-      $loading.addClass 'loaded'
       $loading.hide(0, -> $data.show() )
+      $this.blur()
 
   $('.vote_header').on 'click', ->
     id = $(this).context.id

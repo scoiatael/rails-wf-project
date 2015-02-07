@@ -7,7 +7,11 @@
     %tr
       %th
       %th Name
-      %th{:colspan => "3"}
+      %th Show
+      - if current_user.try :admin?
+        %th Edit
+        %th Destroy
+
   %tbody
     - @movies.each do |movie|
       %tr
@@ -16,7 +20,13 @@
           %span#movie_id.hidden= movie.imdb_id
         %td
           %a{href: movie.link}= movie.name
-        %td= link_to 'Show', movie
-        %td= link_to 'Edit', edit_movie_path(movie)
+        %td
+          = link_to movie do
+            %i.fa.fa-search
         - if current_user.try :admin?
-          %td= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' }
+          %td
+            = link_to edit_movie_path(movie) do
+              %i.fa.fa-pencil-square-o.yellow
+          %td
+            = link_to movie, method: :delete, data: { confirm: 'Are you sure?' } do
+              %i.fa.fa-trash-o.red
