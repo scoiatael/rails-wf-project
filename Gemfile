@@ -20,6 +20,8 @@ gem 'bcrypt'
 gem 'unicorn'
 gem 'exception_handler'
 gem "font-awesome-rails"
+gem "select2-rails"
+
 
 group :production do
   gem 'pg'

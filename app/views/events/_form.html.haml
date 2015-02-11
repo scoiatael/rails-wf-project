@@ -17,6 +17,7 @@
       = f.fields_for :vote_options do |vote_option|
         = render 'vote_option_fields', :f => vote_option
     .links
-      = link_to_add_association 'add option', f, :vote_options
+      = link_to_add_association f, :vote_options do
+        %i.fa.fa-plus
   .actions
     = f.submit

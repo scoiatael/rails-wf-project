@@ -1,5 +1,6 @@
 .nested-fields.field.flex
+  = link_to_remove_association f do
+    %i.fa.fa-trash-o.red
   = f.label :movie
-  = f.collection_select :movie_id, Movie.all, :id, :name, include_blank: true
-  = link_to_remove_association "remove option", f
+  = f.collection_select :movie_id, Movie.all, :id, :name, { include_blank: true }, class: 'select2'
 
